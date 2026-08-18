@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Grade Calculator</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3730a3;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3730a3;
+        }
+
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #eef2ff;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Grade Calculator</h1>
+
+        <!-- Input for five subjects -->
+        <label>Subject 1:</label>
+        <input type="number" id="mark1" min="0" max="100">
+
+        <label>Subject 2:</label>
+        <input type="number" id="mark2" min="0" max="100">
+
+        <label>Subject 3:</label>
+        <input type="number" id="mark3" min="0" max="100">
+
+        <label>Subject 4:</label>
+        <input type="number" id="mark4" min="0" max="100">
+
+        <label>Subject 5:</label>
+        <input type="number" id="mark5" min="0" max="100">
+
+        <button onclick="calculateGrade()">
+            Calculate Result
+        </button>
+
+        <div id="result">
+            Enter marks and click Calculate Result.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /*
+         * User-defined function to calculate
+         * the student's result.
+         */
+        function calculateGrade() {
+
+            // Array stores marks of five subjects.
+            let marks = [];
+
+            // Iteration is used to read all five marks.
+            for (let i = 1; i <= 5; i++) {
+
+                let mark =
+                    Number(document.getElementById("mark" + i).value);
+
+                // Validate marks.
+                if (isNaN(mark) || mark < 0 || mark > 100) {
+
+                    document.getElementById("result").innerHTML =
+                        "Please enter valid marks between 0 and 100.";
+
+                    return;
+                }
+
+                marks.push(mark);
+            }
+
+            // Calculate total using iteration.
+            let total = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+                total += marks[i];
+            }
+
+            // Calculate average.
+            let average = total / marks.length;
+
+            /*
+             * Selection statement:
+             * Grade is determined using if-else.
+             */
+            let grade;
+
+            if (average >= 90) {
+                grade = "A";
+            }
+            else if (average >= 75) {
+                grade = "B";
+            }
+            else if (average >= 60) {
+                grade = "C";
+            }
+            else if (average >= 50) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+
+            /*
+             * Student passes only when every
+             * subject has at least 40 marks.
+             */
+            let pass = true;
+
+            for (let i = 0; i < marks.length; i++) {
+
+                if (marks[i] < 40) {
+                    pass = false;
+                    break;
+                }
+            }
+
+            let status = pass ? "PASS" : "FAIL";
+
+            // Display the final result.
+            document.getElementById("result").innerHTML =
+
+                "<h2>Student Result</h2>" +
+                "<p><b>Total:</b> " + total + " / 500</p>" +
+                "<p><b>Average:</b> " +
+                average.toFixed(2) + "</p>" +
+                "<p><b>Grade:</b> " + grade + "</p>" +
+                "<p><b>Status:</b> " + status + "</p>";
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Internet and Web Fundamentals</title>
+
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f7fb;
+            color: #222;
+        }
+
+        /* Header */
+        header {
+            background-color: #1d3557;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #457b9d;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        /* Main content */
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            color: #1d3557;
+            border-bottom: 2px solid #457b9d;
+            padding-bottom: 8px;
+        }
+
+        /* Diagram styling */
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .box {
+            background-color: #a8dadc;
+            padding: 18px;
+            border: 2px solid #1d3557;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .arrow {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1d3557;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Internet and Web Fundamentals</h1>
+        <p>Basic Concepts of the World Wide Web</p>
+    </header>
+
+    <nav>
+        <a href="#internet">Internet</a>
+        <a href="#network">Networks</a>
+        <a href="#url">URL</a>
+        <a href="#browser">Browser</a>
+        <a href="#working">Working</a>
+    </nav>
+
+    <main>
+
+        <!-- Internet Overview -->
+        <section id="internet">
+            <h2>1. Internet Overview</h2>
+
+            <p>
+                The Internet is a worldwide network of interconnected
+                computers and devices. It allows users to communicate,
+                share information and access online services.
+            </p>
+
+            <div class="diagram">
+                <div class="box">Computer</div>
+                <div class="arrow">↔</div>
+                <div class="box">Internet</div>
+                <div class="arrow">↔</div>
+                <div class="box">Web Server</div>
+            </div>
+        </section>
+
+        <!-- Computer Networks -->
+        <section id="network">
+            <h2>2. Fundamental Computer Network Concepts</h2>
+
+            <p>
+                A computer network is a group of connected computers
+                that communicate and share resources.
+            </p>
+
+            <ul>
+                <li><b>LAN:</b> Local Area Network covering a small area.</li>
+                <li><b>WAN:</b> Wide Area Network covering a large geographical area.</li>
+                <li><b>IP Address:</b> A unique address used to identify a device.</li>
+                <li><b>Protocol:</b> A set of rules used for communication.</li>
+                <li><b>TCP/IP:</b> Important protocols used for Internet communication.</li>
+            </ul>
+
+            <div class="diagram">
+                <div class="box">Sender</div>
+                <div class="arrow">→</div>
+                <div class="box">Network</div>
+                <div class="arrow">→</div>
+                <div class="box">Receiver</div>
+            </div>
+        </section>
+
+        <!-- URL -->
+        <section id="url">
+            <h2>3. URL and its Structure</h2>
+
+            <p>
+                URL stands for Uniform Resource Locator. It is the
+                address used to locate a resource on the Internet.
+            </p>
+
+            <p>
+                Example:
+                <b>https://www.example.com/index.html</b>
+            </p>
+
+            <ul>
+                <li><b>https:</b> Protocol</li>
+                <li><b>www:</b> Subdomain</li>
+                <li><b>example:</b> Domain name</li>
+                <li><b>.com:</b> Top-level domain</li>
+                <li><b>index.html:</b> Webpage/resource</li>
+            </ul>
+        </section>
+
+        <!-- Domain Name -->
+        <section>
+            <h2>4. Domain Name</h2>
+
+            <p>
+                A domain name is a human-readable name used to access
+                a website. It is easier to remember than an IP address.
+            </p>
+
+            <p>
+                Example:
+                <b>example.com</b>
+            </p>
+
+            <p>
+                DNS converts the domain name into the corresponding
+                IP address.
+            </p>
+
+            <div class="diagram">
+                <div class="box">Domain Name</div>
+                <div class="arrow">→</div>
+                <div class="box">DNS</div>
+                <div class="arrow">→</div>
+                <div class="box">IP Address</div>
+            </div>
+        </section>
+
+        <!-- Browser and Server -->
+        <section id="browser">
+            <h2>5. Web Browsers and Web Servers</h2>
+
+            <p>
+                A <b>web browser</b> is software used to access and
+                display webpages. Examples include Chrome, Firefox,
+                Edge and Safari.
+            </p>
+
+            <p>
+                A <b>web server</b> is a computer/software system that
+                stores webpages and sends them to clients when requested.
+            </p>
+
+            <div class="diagram">
+                <div class="box">Web Browser</div>
+                <div class="arrow">Request →</div>
+                <div class="box">Web Server</div>
+                <div class="arrow">← Response</div>
+                <div class="box">Webpage</div>
+            </div>
+        </section>
+
+        <!-- Working -->
+        <section id="working">
+            <h2>6. Working Principle of a Website</h2>
+
+            <ol>
+                <li>User enters a URL in the browser.</li>
+                <li>DNS finds the IP address of the server.</li>
+                <li>The browser sends a request to the web server.</li>
+                <li>The server processes the request.</li>
+                <li>The server sends HTML, CSS and JavaScript files.</li>
+                <li>The browser renders the webpage for the user.</li>
+            </ol>
+
+            <div class="diagram">
+                <div class="box">User</div>
+                <div class="arrow">→</div>
+                <div class="box">Browser</div>
+                <div class="arrow">→</div>
+                <div class="box">Server</div>
+                <div class="arrow">→</div>
+                <div class="box">Database</div>
+            </div>
+        </section>
+
+        <!-- Client vs Server -->
+        <section>
+            <h2>7. Client-side vs Server-side Scripting</h2>
+
+            <table border="1" cellpadding="10" width="100%">
+                <tr>
+                    <th>Client-side</th>
+                    <th>Server-side</th>
+                </tr>
+
+                <tr>
+                    <td>Runs in the user's browser.</td>
+                    <td>Runs on the web server.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: JavaScript</td>
+                    <td>Examples: PHP, Python, Java, Node.js</td>
+                </tr>
+
+                <tr>
+                    <td>Used for user interaction and validation.</td>
+                    <td>Used for databases and business logic.</td>
+                </tr>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Web Technologies Assignment - Q1</p>
+    </footer>
+
+</body>
+</html>

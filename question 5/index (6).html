@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Supermarket Billing System</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecfdf5;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        h1 {
+            text-align: center;
+            color: #047857;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            background-color: #f0fdf4;
+        }
+
+        .product h3 {
+            color: #065f46;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            border: none;
+            background-color: #059669;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #047857;
+        }
+
+        #bill {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #ecfdf5;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Supermarket Billing System</h1>
+
+        <!-- Product 1 -->
+        <div class="product">
+
+            <h3>Product 1</h3>
+
+            <label>Quantity:</label>
+
+            <input type="number"
+                   id="qty1"
+                   min="1"
+                   placeholder="Enter quantity">
+
+            <label>Unit Price:</label>
+
+            <input type="number"
+                   id="price1"
+                   min="0"
+                   placeholder="Enter price">
+
+        </div>
+
+
+        <!-- Product 2 -->
+        <div class="product">
+
+            <h3>Product 2</h3>
+
+            <label>Quantity:</label>
+
+            <input type="number"
+                   id="qty2"
+                   min="1"
+                   placeholder="Enter quantity">
+
+            <label>Unit Price:</label>
+
+            <input type="number"
+                   id="price2"
+                   min="0"
+                   placeholder="Enter price">
+
+        </div>
+
+
+        <!-- Product 3 -->
+        <div class="product">
+
+            <h3>Product 3</h3>
+
+            <label>Quantity:</label>
+
+            <input type="number"
+                   id="qty3"
+                   min="1"
+                   placeholder="Enter quantity">
+
+            <label>Unit Price:</label>
+
+            <input type="number"
+                   id="price3"
+                   min="0"
+                   placeholder="Enter price">
+
+        </div>
+
+
+        <button onclick="generateBill()">
+            Generate Bill
+        </button>
+
+
+        <div id="bill">
+            Enter product details and generate the bill.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /*
+         * User-defined function for calculating
+         * the supermarket bill.
+         */
+        function generateBill() {
+
+            let total = 0;
+
+            /*
+             * Loop through three products.
+             * This demonstrates iteration.
+             */
+            for (let i = 1; i <= 3; i++) {
+
+                let quantity =
+                    Number(
+                        document.getElementById("qty" + i).value
+                    );
+
+                let price =
+                    Number(
+                        document.getElementById("price" + i).value
+                    );
+
+                // Validate input.
+                if (quantity <= 0 || price < 0 ||
+                    isNaN(quantity) || isNaN(price)) {
+
+                    document.getElementById("bill").innerHTML =
+                        "Please enter valid quantity and price.";
+
+                    return;
+                }
+
+                /*
+                 * Calculate product amount:
+                 * Quantity × Unit Price
+                 */
+                let amount = quantity * price;
+
+                // Add product amount to total.
+                total += amount;
+            }
+
+
+            /*
+             * Selection statement:
+             * Apply 10% discount if total exceeds ₹2000.
+             */
+            let discount = 0;
+
+            if (total > 2000) {
+
+                discount = total * 0.10;
+            }
+
+
+            // Calculate final payable amount.
+            let finalAmount = total - discount;
+
+
+            // Display bill details.
+            document.getElementById("bill").innerHTML =
+
+                "<h2>Final Bill</h2>" +
+
+                "<p><b>Total Amount:</b> ₹" +
+                total.toFixed(2) + "</p>" +
+
+                "<p><b>Discount:</b> ₹" +
+                discount.toFixed(2) + "</p>" +
+
+                "<p><b>Final Payable Amount:</b> ₹" +
+                finalAmount.toFixed(2) + "</p>";
+        }
+
+    </script>
+
+</body>
+
+</html>
