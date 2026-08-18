@@ -1,2 +1,3 @@
 # Web-technologies-Assignment
-java, html, css programs
+question 1
+javascript, html, css code
